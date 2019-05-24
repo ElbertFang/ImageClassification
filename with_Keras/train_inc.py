@@ -102,10 +102,10 @@ def train(aug,trainX,trainY,testX,testY):
     
 
 
-#python train.py --dataset_train ../../traffic-sign/train --dataset_test ../../traffic-sign/test --model traffic_sign.model
+#python train.py --dataset_train ../../train --dataset_test ../../test --model traffic_sign.model
 if __name__=='__main__':
-    train_file_path = '/home/public_datasets/dzj_img_5k/train/'
-    test_file_path = '/home/public_datasets/dzj_img_5k/test/'
+    train_file_path = 'train/'
+    test_file_path = 'test/'
     print('Loading train images')
     trainX,trainY = load_data(train_file_path)
     print('Loading test images')
