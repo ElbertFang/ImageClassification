@@ -107,7 +107,7 @@ def train(aug,train_path, test_path, l_train, l_test):
     
 
 
-#python train.py --dataset_train ../../traffic-sign/train --dataset_test ../../traffic-sign/test --model traffic_sign.model
+#python train.py --dataset_train ../../train --dataset_test ../../test --model traffic_sign.model
 if __name__=='__main__':
     train_file_path = 'train.json'
     test_file_path = 'test.json'
