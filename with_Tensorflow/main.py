@@ -12,8 +12,8 @@ from my_model import my_model
 FLAGS = tf.app.flags.FLAGS
 
 
-tf.app.flags.DEFINE_string('file_train', '/home/public_datasets/dzj/data_200c/train/', 'path of train image data')
-tf.app.flags.DEFINE_string('file_test', '/home/public_datasets/dzj/data_200c/test/', 'path of train image data')
+tf.app.flags.DEFINE_string('file_train', '', 'path of train image data')
+tf.app.flags.DEFINE_string('file_test', '', 'path of train image data')
 tf.app.flags.DEFINE_string('train_path', 'train.tfrecords', 'path of train data')
 tf.app.flags.DEFINE_string('test_path', 'test.tfrecords', 'path of test data')
 
@@ -85,19 +85,11 @@ def main():
         sess.run(tf.global_variables_initializer())
         sess.run(train_iterator.initializer)
         sess.run(test_iterator.initializer)
-        # handle_train = sess.run(train_iterator.string_handle())
-        #train_image, train_label = sess.run([train_x, train_y_])
-        #test_image, test_label = sess.run([test_x, test_y_])
         for i in range(nBatchs):
             while True:
                 try:
                     train_image, train_label = sess.run([train_x, train_y_])
                     i+=1
-                    #_, acc, curr_loss = sess.run([optimizer, accuracy, loss], feed_dict={handle: handle_train, keep_prob:0.5})
-                    #aaa, bbb = sess.run([x,y_], feed_dict={x:image_batch, y_:label_batch})
-                    #print(sess.run([tf.shape(aaa), tf.shape(bbb)]))            
-                    #ccc = sess.run(y, feed_dict={x:image_batch, y_:label_batch, keep_prob:0.5})
-                    #print(sess.run(tf.shape(ccc)))
                     _, train_acc, train_loss = sess.run([optimizer, accuracy, loss], feed_dict={x: train_image, y_: train_label, keep_prob:1.0})
                     #sess.run(optimizer, feed_dict={x: image_batch, y_: label_batch, keep_prob:0.5})
                     if i%(16000/32) == 0:
