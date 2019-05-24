@@ -13,8 +13,8 @@ from my_model import my_model
 FLAGS = tf.app.flags.FLAGS
 
 
-tf.app.flags.DEFINE_string('file_train', '/home/public_datasets/dzj/data_200c/train/', 'path of train image data')
-tf.app.flags.DEFINE_string('file_test', '/home/public_datasets/dzj/data_200c/test/', 'path of train image data')
+tf.app.flags.DEFINE_string('file_train', '', 'path of train image data')
+tf.app.flags.DEFINE_string('file_test', '', 'path of train image data')
 tf.app.flags.DEFINE_string('train_path', 'train.tfrecords', 'path of train data')
 tf.app.flags.DEFINE_string('test_path', 'test.tfrecords', 'path of test data')
 
